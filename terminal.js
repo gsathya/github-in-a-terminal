@@ -1,6 +1,6 @@
-var cmds = {}, cmd, branch = 'master', is_git_repo = false, path_sep = "&#8725;", dir = path_sep+'gsathya', repos = {}, pwd, branches, branch_dom;
+var cmds = {}, cmd, branch = 'master', is_git_repo = false, path_sep = "&#8725;", dir = path_sep+'gsathya', repos = {}, pwd, branches, branch_dom, prompt_dom = [];
 var username = 'gsathya';
-var prompt_dom = [];
+
 
 function createPrompt() {
     prompt_dom = [];
@@ -11,7 +11,10 @@ function createPrompt() {
 
     $('.container').append('<div class="ps"><label for="input" id="prompt">'+prompt_dom.join(' ')+'<span id="dollar"> &#x24; </span></label><div class="inputbox"><input type="text" id="input"/></div></div><div class="result"></div>');
     
-    //Scroll down
+    // keep focus on the prompt
+    $('#input').focus();
+
+    // scroll down page when content overflows
     $('html, body').animate({ 
         scrollTop: $('input').offset().top
     }, 1000);
